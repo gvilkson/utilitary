@@ -52,24 +52,26 @@ class Server(object):
 		self.check()
 
 		while True:
-			# get the command from prompt
-			command = input(f"{self.cwd} $> ")
-			if not command.strip():
-				# empty command
-				continue
+			try:
+				# get the command from prompt
+				command = input(f"{self.cwd} $> ")
+				if not command.strip():
+					# empty command
+					continue
 
-			# send the command to the client
-			self.client_socket.send(command.encode())
-			if command.lower() == "exit":
-				# if the command is exit, just break out of the loop
-				break
-			# retrieve command results
-			output = self.client_socket.recv(self.BUFFER_SIZE).decode()
-			# split command output and current directory
-			results, cwd = output.split(self.SEPARATOR)
-			# print output
-			print(results)
-       
+				# send the command to the client
+				self.client_socket.send(command.encode())
+				if command.lower() == "exit":
+					# if the command is exit, just break out of the loop
+					break
+				# retrieve command results
+				output = self.client_socket.recv(self.BUFFER_SIZE).decode()
+				# split command output and current directory
+				results, cwd = output.split(self.SEPARATOR)
+				# print output
+				print(results)
+			except:
+				pass
 class ServerFileTransfer(Server):
     
 	# create the server socket

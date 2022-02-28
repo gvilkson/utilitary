@@ -1,8 +1,6 @@
 #-*- coding: utf-8 -*-
 
 import os
-import time
-
 class Dialog(object):
     def __init__(self, name):
         self.name = name
@@ -20,7 +18,8 @@ class Dialog(object):
     def head_msg(self, name):
         
         try:
-            msg = open(name, 'r')
+
+            msg = open(name, 'rw')
             message = msg.read()
             msg.close()
             return message
