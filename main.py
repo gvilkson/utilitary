@@ -75,6 +75,8 @@ class Main(object):
     
             ],
 		}
+
+		# Avaliando comandos enviados ...
 		for cmd in triggers['commands']:
 			if argv == cmd:
 				return self.commands(commit=cmd)
