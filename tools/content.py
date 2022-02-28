@@ -4,6 +4,7 @@ import socket
 import os
 import subprocess
 import sys
+import tqdm
 
 from termcolor import colored as c
 
@@ -51,21 +52,69 @@ class Server(object):
 		self.check()
 
 		while True:
-    			# get the command from prompt
-    			command = input(f"{self.cwd} $> ")
-    			if not command.strip():
-        			# empty command
-        			continue
+			# get the command from prompt
+			command = input(f"{self.cwd} $> ")
+			if not command.strip():
+				# empty command
+				continue
 
-    			# send the command to the client
-    			self.client_socket.send(command.encode())
-    			if command.lower() == "exit":
-        			# if the command is exit, just break out of the loop
-        			break
-    			# retrieve command results
-    			output = self.client_socket.recv(self.BUFFER_SIZE).decode()
-    			# split command output and current directory
-    			results, cwd = output.split(self.SEPARATOR)
-    			# print output
-    			print(results)
+			# send the command to the client
+			self.client_socket.send(command.encode())
+			if command.lower() == "exit":
+				# if the command is exit, just break out of the loop
+				break
+			# retrieve command results
+			output = self.client_socket.recv(self.BUFFER_SIZE).decode()
+			# split command output and current directory
+			results, cwd = output.split(self.SEPARATOR)
+			# print output
+			print(results)
+       
+class ServerFileTransfer(Server):
+    
+	# create the server socket
+	# TCP socket
+	s = socket.socket()
 
+	# Progress the size
+	progress = None
+
+	def __init__(self):
+		# device's IP address
+		self.SERVER_HOST = "0.0.0.0"
+		self.SERVER_PORT = 5001
+		# receive 4096 bytes each time
+		self.BUFFER_SIZE = 4096
+		self.SEPARATOR = "<SEPARATOR>"
+		
+	def receive_file_size(self, file, size):
+		# receive the file infos
+		# receive using client socket, not server socket
+		received = self.client_socket.recv(self.BUFFER_SIZE).decode()
+
+		filename, filesize = received.split(self.SEPARATOR)
+		# remove absolute path if there is
+		filename = os.path.basename(filename)
+		# convert to integer
+		filesize = int(filesize)
+
+		# start receiving the gile from the socket
+		# and writing to the file stream
+		self.progress = tqdm.tqdm(range(filesize))
+		with open(filename, "wb") as f:
+			while True:
+				# read 1024 bytes from the socket (receive)
+				bytes_read = self.client_socket.recv(self.BUFFER_SIZE)
+				if not bytes_read:
+					# nothing is received
+					# file transmitting is done
+					break
+				# write to the file the bytes we just received
+				f.write(bytes_read)
+				# update the progress bar
+				self.progress.update(len(bytes_read))
+
+				# close the client socket
+				self.client_socket.close()
+				# close the server socket
+				self.s.close()
