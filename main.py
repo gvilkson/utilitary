@@ -59,16 +59,19 @@ class Main(object):
 		elif commit.lower() == 'herokuconfig':
 			return print('Em desenvolvimento....')
 
+		elif commit.lower() == 'server web local':
+
 	def methodos(self, argv):
 		triggers = {
 			'commands': [
        
 				'server',
-    			'help',
-       			'exit',
-          		'login',
+				'help',
+				'exit',
+				'login',
 				'gitconfig',
-				'herokuconfig'
+				'herokuconfig',
+				'server web local',
     
             ],
 		}
