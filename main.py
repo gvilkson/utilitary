@@ -28,11 +28,11 @@ class Main(object):
 			server.run()
 
 	def methodos(self):
-		pas
+		pass
 
 def main():
 	obj = Main()
-	obj.tools()
+	obj.tools('server')
 	print(obj.version)
 
 if __name__ == '__main__':
