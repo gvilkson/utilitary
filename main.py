@@ -11,6 +11,7 @@ from termcolor import colored
 from tools.content import Server as S
 from tools.content import ServerLocal
 from dialog.dialog import Dialog as msg
+from modules.system.system import MainSystem
 
 # exeple--------------------------------------
 """
@@ -32,6 +33,8 @@ def response(data):
 
 
 class Main(object):
+
+    _MainSystem = MainSystem()
 
     _USUARIO = None
     _SESSION_NAME = None
@@ -69,10 +72,15 @@ class Main(object):
             thred = Th(target=obj.start_server)
             thred.start()
 
+        elif commit.lower() == 'data':
+            data = self._MainSystem.get_info('data')
+            return print(data)
+
     def methodos(self, argv):
         triggers = {
             'commands': [
 
+                'data',
                 'server',
                 'help',
                 'exit',
