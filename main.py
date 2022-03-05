@@ -12,15 +12,6 @@ from tools.content import Server as S
 from tools.content import ServerLocal
 from dialog.dialog import Dialog as msg
 
-# exeple--------------------------------------
-"""
-print(colored('Error Test!!!', 'red'))
-print(colored('Warning Test!!!', 'yellow'))
-print(colored('Success Test!!!', 'green'))
-"""
-
-# Funções de classes ---
-
 
 def entry():
     data = input('#'+colored('|set|', 'yellow')+'#>'+' ')
