@@ -69,11 +69,16 @@ class Main(object):
             thred = Th(target=obj.start_server)
             thred.start()
 
+	elif commit.lower() == 'hydra':
+	    from tools.hydra import Alvo as alvo
+            pass
+
     def methodos(self, argv):
         triggers = {
             'commands': [
 
                 'server',
+		'hydra',
                 'help',
                 'exit',
                 'login',
