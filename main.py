@@ -13,15 +13,6 @@ from tools.content import ServerLocal
 from dialog.dialog import Dialog as msg
 from modules.system.system import MainSystem
 
-# exeple--------------------------------------
-"""
-print(colored('Error Test!!!', 'red'))
-print(colored('Warning Test!!!', 'yellow'))
-print(colored('Success Test!!!', 'green'))
-"""
-
-# Funções de classes ---
-
 
 def entry():
     data = input('#'+colored('|set|', 'yellow')+'#>'+' ')
@@ -72,9 +63,15 @@ class Main(object):
             thred = Th(target=obj.start_server)
             thred.start()
 
+<<<<<<< HEAD
         elif commit.lower() == 'data':
             data = self._MainSystem.get_info('data')
             return print(data)
+=======
+	elif commit.lower() == 'hydra':
+	    from tools.hydra import Alvo as alvo
+            pass
+>>>>>>> bc010b3c7ac379554f592299cd378aa9a02468e1
 
     def methodos(self, argv):
         triggers = {
@@ -82,6 +79,7 @@ class Main(object):
 
                 'data',
                 'server',
+		'hydra',
                 'help',
                 'exit',
                 'login',
