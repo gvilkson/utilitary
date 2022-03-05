@@ -151,5 +151,13 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 
-
+# Others
+#Arquivos bkp
 *.save/
+.save/
+*.save
+
+
+# Tokens
+# Git Acess
+*token_git.txt
