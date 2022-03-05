@@ -63,15 +63,9 @@ class Main(object):
             thred = Th(target=obj.start_server)
             thred.start()
 
-<<<<<<< HEAD
-        elif commit.lower() == 'data':
-            data = self._MainSystem.get_info('data')
-            return print(data)
-=======
-	elif commit.lower() == 'hydra':
-	    from tools.hydra import Alvo as alvo
+        elif commit.lower() == 'hydra':
+            from tools.hydra import Alvo as alvo
             pass
->>>>>>> bc010b3c7ac379554f592299cd378aa9a02468e1
 
     def methodos(self, argv):
         triggers = {
@@ -79,7 +73,7 @@ class Main(object):
 
                 'data',
                 'server',
-		'hydra',
+                'hydra',
                 'help',
                 'exit',
                 'login',
