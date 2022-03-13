@@ -62,7 +62,7 @@ class Main(object):
         }
 
     def __init__(self):
-        th(target=loader(1000000))
+        th(target=loader(10000))
         os.system('clear')
         menu_msg = msg()
         print(menu_msg.head_msg('menu'))
