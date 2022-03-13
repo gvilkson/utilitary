@@ -12,13 +12,12 @@ from threading import Thread as th
 from termcolor import colored
 
 # Modules ---------
-from tools.content import Server as S
 from dialog.dialog import Dialog as msg
 from modules.system.system import MainSystem
 
 # Função para receber a entradada de dados do usuário
 def entry():
-    data = input('{} #'.format(os.getcwd())+colored('|set|', 'yellow')+'#>'+' ')
+    data = input('{} #'.format(colored(os.getcwd(), 'white'))+colored('|set|', 'yellow')+'#>'+' ')
     return data
 
 
@@ -55,12 +54,15 @@ class Main(object):
                 'ls',
                 'clear',
                 'cd',
+                'cat',
+                # redes -------------------
+                'ping',
 
             ],
         }
 
     def __init__(self):
-        th(target=loader(10000))
+        th(target=loader(1000000))
         os.system('clear')
         menu_msg = msg()
         print(menu_msg.head_msg('menu'))
@@ -109,14 +111,34 @@ class Main(object):
             print('Commit =>', commit[:1])
             self._MainSystem.cmd_cd(commit=commit[3:])
 
+        elif 'cat' in commit.lower():
+            self._MainSystem.cmd_cat(commit=commit[4:])
+
+        elif 'ping' in commit.lower():
+            th(target=self._MainSystem.cmd_ping(commit=commit[5:]))
+
+        ################################################################
+        # End Comandos basicos do sistema ----------------------          <<------------------------
+        ################################################################
+
 
     def methodos(self, argv):
         # Avaliando comandos enviados ...
         for cmd in self.triggers['commands']:
             if argv == cmd:
                 return self.commands(commit=cmd)
+
+            # Condições para tratar argumentos de comandos ------------------
             elif argv[:3] == 'cd ':
                 self._CACHE.append(argv[:3])
+                return self.commands(commit=argv)
+            elif argv[:4] == 'cat ':
+                self._CACHE.append(argv[:4])
+                print(argv)
+                return self.commands(commit=argv)
+            elif argv[:5] == 'ping ':
+                self._CACHE.append(argv[:5])
+                print(argv)
                 return self.commands(commit=argv)
 
             if not argv in self.triggers['commands']:

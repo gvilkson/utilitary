@@ -6,6 +6,7 @@ from threading import Thread as th
 
 from datetime import datetime
 import click
+from termcolor import colored
 
 def loader(args):
     with click.progressbar(range(int(args))) as bar:
@@ -18,6 +19,8 @@ class MainSystem(object):
 	data = None
 
 	_BASE_DIR = '/home/'
+	_PATH_LOCAL = []
+	_ARQ_LOCAL_PATH = []
 
 	def __init__(self):
 		self.plataforma = platform.platform()
@@ -32,7 +35,7 @@ class MainSystem(object):
 
 	def cmd_exit(self):
 		os.system('clear')
-		print('Fechando aplicação!')
+		print(colored('Finalizado!', 'yellow'))
 		return exit()
 
 	def cmd_login(self):
@@ -59,9 +62,46 @@ class MainSystem(object):
 		print('Verificando hydra no sistema Operacional...')
 		loader(10000)
 
-	# Comandos basicos do sistema ---------------------------------------------
+	# Comandos basicos do sistema ---------------------------------------------######################################
 	def cmd_ls(self):
-		return print(os.listdir())
+		self._ARQ_LOCAL_PATH = []
+		self._PATH_LOCAL = []
+		data = os.listdir()
+		indice = 0
+
+		print(colored('<<<<<<<<<<<<<<<< Pastas >>>>>>>>>>>>>>>>>', 'white'))
+		for i in data:
+			if not "." in i:
+				self._PATH_LOCAL.append(i)
+				path_size = os.path.getsize(i)
+
+				if self._PATH_LOCAL[indice] == indice:
+					indice = indice + 1
+
+				else:
+
+					vl = len(i)
+
+					self._PATH_LOCAL[indice] = self._PATH_LOCAL[indice] + '[{}]'.format(indice)
+					if vl <= 10:
+						print(colored(self._PATH_LOCAL[indice][-3:].strip('[').strip(']'), 'white'), colored(self._PATH_LOCAL[indice][:-3], 'green'), '| BT/'+str(path_size))
+					
+					if vl >= 10:
+						print(colored(self._PATH_LOCAL[indice][-3:].strip('[').strip(']'), 'white'), colored(self._PATH_LOCAL[indice][:-3], 'green'), '| BT/'+str(path_size))
+
+					indice = indice + 1
+
+		print(colored('<<<<<<<<<<<<<<<< Arquivos >>>>>>>>>>>>>>>>>', 'white'))
+		for i in data:
+			if "." in i:
+				if not "." in i[0]:
+					self._ARQ_LOCAL_PATH.append(i)
+					arq_size = os.path.getsize(i)
+					print(colored(i, 'white'), '| BT/'+str(arq_size))
+
+		print(colored('___________________________________________________________ _ _', 'green'))
+		print(colored('|========================  End  =============================>>>', 'white'))
+
 
 	def cmd_clear(self):
 		return os.system('clear')
@@ -70,4 +110,11 @@ class MainSystem(object):
 		try:
 			return os.chdir(path=commit)
 		except:
-			print('Diretório não encontrado!')
+			print(colored('Diretório não encontrado!', 'red'))
+
+	def cmd_cat(self, commit):
+		return subprocess.call(['cat', commit])
+
+	# Comandos sobre redes -------------------------------------
+	def cmd_ping(self, commit):
+		return subprocess.call(['ping', commit])
