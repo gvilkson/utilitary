@@ -2,7 +2,7 @@
 
 from termcolor import colored
 
-# Propriedades de cores para menu 
+# Propriedades de cores para menu ------------------------------------------------------- Menu <<<<<<<<<<<<<<<<<
 menu_item_01 = colored('Auxiliary', 'blue')
 menu_item_02 = colored('command line', 'yellow')
 menu_item_03 = colored('START', 'white')
@@ -19,7 +19,16 @@ MENU = """
   |_____|_____|_____|_____|_____|_____|_____|_____|_____|
       {} | {} | {} {}
       """.format(menu_item_01, menu_item_02, menu_item_03, menu_item_04)
+#--------------------------------------------------------------------------------------- End Menu --------------
 
+HYDRA = """
+ _               _           
+| |__  _   _  __| |_ __ __ _ 
+| '_ \| | | |/ _` | '__/ _` |
+| | | | |_| | (_| | | | (_| |
+|_| |_|\__, |\__,_|_|  \__,_|
+       |___/
+"""
 
 
 class Dialog(object):
@@ -30,3 +39,6 @@ class Dialog(object):
         name = str(name)
         if name == 'menu':
             return MENU
+
+        elif name == 'hydra':
+            return HYDRA

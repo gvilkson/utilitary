@@ -7,6 +7,7 @@ from threading import Thread as th
 from datetime import datetime
 import click
 from termcolor import colored
+from dialog.dialog import Dialog as msg
 
 def loader(args):
     with click.progressbar(range(int(args))) as bar:
@@ -57,10 +58,40 @@ class MainSystem(object):
 		thred.start()
 
 	def cmd_hydra(self):
+
 		from tools.hydra import THC_hydra
+
+		os.system('clear')
 		hydra = THC_hydra()
-		print('Verificando hydra no sistema Operacional...')
-		loader(10000)
+
+		banner_msg = msg()
+		print(banner_msg.head_msg('hydra'))
+
+		chaves = [chave for chave, valor in sorted(hydra._target.items(), reverse=True)]
+		args_target = {}
+
+		for chave in chaves:
+			print(colored('Implemente', 'yellow'), colored('{}'.format(chave), 'green'))
+			enty = input(colored('>>> ', 'blue'))
+			args_target[chave] = enty
+			print(args_target)
+
+			print(colored('______________________________', 'blue'), '\n')
+
+		hydra.target(
+			host=str(args_target['host']),
+			port=args_target['porta_web'],
+			list_name=args_target['list_name'],
+			list_password=args_target['list_password'],
+			protocolo=args_target['protocolo'],
+			local_page_login=args_target['local_page_login'],
+			request=args_target['request'],
+			message=args_target['message'],
+			)
+		hydra.atack_web()
+
+
+
 
 	# Comandos basicos do sistema ---------------------------------------------######################################
 	def cmd_ls(self):

@@ -57,6 +57,7 @@ class Main(object):
                 'cat',
                 # redes -------------------
                 'ping',
+                # hydra ======
 
             ],
         }
