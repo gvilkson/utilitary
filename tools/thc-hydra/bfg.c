@@ -1,6 +1,5 @@
 
 /* code original by Jan Dlabal <dlabaljan@gmail.com>, partially rewritten by vh. */
-/* Criando um teste */
 
 #include <ctype.h>
 #include <math.h>
