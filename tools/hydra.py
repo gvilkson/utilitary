@@ -38,7 +38,11 @@ class THC_hydra(object):
     def atack_web(self):
         data = f"{self._target['local_page_login']}: {self._target['request']}:{self._target['message']}"
         print(data)
-        arg = f" hydra {self._parameters[11]} {self._target['porta_web']} {self._parameters[1]} {self._target['list_name']} {self._parameters[3]} {self._target['list_password']} {self._target['host']} {self._target['protocolo']} {data} "
+        try:
+            subprocess.call('hydra')
+        except:
+            print(colored('Hydra não instalado!', 'red'))
+            arg = f" hydra {self._parameters[11]} {self._target['porta_web']} {self._parameters[1]} {self._target['list_name']} {self._parameters[3]} {self._target['list_password']} {self._target['host']} {self._target['protocolo']} {data} "
         print(arg)
         os.system(arg)
 
