@@ -2,6 +2,7 @@
 
 import os
 import subprocess
+from termcolor import colored
 
 class THC_hydra(object):
     _name = 'hydra'
