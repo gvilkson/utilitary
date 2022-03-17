@@ -1,0 +1,100 @@
+2022-03-10T20:48:25.576758+00:00 app[web.1]: [2022-03-10 20:48:25 +0000] [4] [INFO] Shutting down: Master
+2022-03-10T20:48:25.704377+00:00 heroku[web.1]: Process exited with status 0
+2022-03-10T20:48:31.442947+00:00 heroku[web.1]: Starting process with command `gunicorn backend.wsgi --log-file -`
+2022-03-10T20:48:32.943561+00:00 app[web.1]: [2022-03-10 20:48:32 +0000] [4] [INFO] Starting gunicorn 20.1.0
+2022-03-10T20:48:32.943927+00:00 app[web.1]: [2022-03-10 20:48:32 +0000] [4] [INFO] Listening at: http://0.0.0.0:59697 (4)
+2022-03-10T20:48:32.943969+00:00 app[web.1]: [2022-03-10 20:48:32 +0000] [4] [INFO] Using worker: sync
+2022-03-10T20:48:32.947053+00:00 app[web.1]: [2022-03-10 20:48:32 +0000] [9] [INFO] Booting worker with pid: 9
+2022-03-10T20:48:32.956444+00:00 app[web.1]: [2022-03-10 20:48:32 +0000] [10] [INFO] Booting worker with pid: 10
+2022-03-10T20:48:33.342625+00:00 heroku[web.1]: State changed from starting to up
+2022-03-11T21:05:29.241215+00:00 heroku[web.1]: Cycling
+2022-03-11T21:05:29.245017+00:00 heroku[web.1]: State changed from up to starting
+2022-03-11T21:05:30.008996+00:00 heroku[web.1]: Stopping all processes with SIGTERM
+2022-03-11T21:05:30.075441+00:00 app[web.1]: [2022-03-11 21:05:30 +0000] [4] [INFO] Handling signal: term
+2022-03-11T21:05:30.075455+00:00 app[web.1]: [2022-03-11 18:05:30 -0300] [10] [INFO] Worker exiting (pid: 10)
+2022-03-11T21:05:30.076197+00:00 app[web.1]: [2022-03-11 18:05:30 -0300] [9] [INFO] Worker exiting (pid: 9)
+2022-03-11T21:05:31.016367+00:00 app[web.1]: [2022-03-11 21:05:31 +0000] [4] [INFO] Shutting down: Master
+2022-03-11T21:05:31.174438+00:00 heroku[web.1]: Process exited with status 0
+2022-03-11T21:05:36.945599+00:00 heroku[web.1]: Starting process with command `gunicorn backend.wsgi --log-file -`
+2022-03-11T21:05:39.079516+00:00 app[web.1]: [2022-03-11 21:05:39 +0000] [4] [INFO] Starting gunicorn 20.1.0
+2022-03-11T21:05:39.080440+00:00 app[web.1]: [2022-03-11 21:05:39 +0000] [4] [INFO] Listening at: http://0.0.0.0:27121 (4)
+2022-03-11T21:05:39.080493+00:00 app[web.1]: [2022-03-11 21:05:39 +0000] [4] [INFO] Using worker: sync
+2022-03-11T21:05:39.090461+00:00 app[web.1]: [2022-03-11 21:05:39 +0000] [9] [INFO] Booting worker with pid: 9
+2022-03-11T21:05:39.139929+00:00 app[web.1]: [2022-03-11 21:05:39 +0000] [10] [INFO] Booting worker with pid: 10
+2022-03-11T21:05:39.467028+00:00 heroku[web.1]: State changed from starting to up
+2022-03-12T21:22:32.756388+00:00 heroku[web.1]: Cycling
+2022-03-12T21:22:32.762530+00:00 heroku[web.1]: State changed from up to starting
+2022-03-12T21:22:33.646300+00:00 heroku[web.1]: Stopping all processes with SIGTERM
+2022-03-12T21:22:33.726187+00:00 app[web.1]: [2022-03-12 18:22:33 -0300] [10] [INFO] Worker exiting (pid: 10)
+2022-03-12T21:22:33.726200+00:00 app[web.1]: [2022-03-12 18:22:33 -0300] [9] [INFO] Worker exiting (pid: 9)
+2022-03-12T21:22:33.726248+00:00 app[web.1]: [2022-03-12 21:22:33 +0000] [4] [INFO] Handling signal: term
+2022-03-12T21:22:34.031935+00:00 app[web.1]: [2022-03-12 21:22:34 +0000] [4] [INFO] Shutting down: Master
+2022-03-12T21:22:34.225874+00:00 heroku[web.1]: Process exited with status 0
+2022-03-12T21:22:41.999423+00:00 heroku[web.1]: Starting process with command `gunicorn backend.wsgi --log-file -`
+2022-03-12T21:22:43.187737+00:00 app[web.1]: [2022-03-12 21:22:43 +0000] [4] [INFO] Starting gunicorn 20.1.0
+2022-03-12T21:22:43.188181+00:00 app[web.1]: [2022-03-12 21:22:43 +0000] [4] [INFO] Listening at: http://0.0.0.0:13757 (4)
+2022-03-12T21:22:43.188227+00:00 app[web.1]: [2022-03-12 21:22:43 +0000] [4] [INFO] Using worker: sync
+2022-03-12T21:22:43.191169+00:00 app[web.1]: [2022-03-12 21:22:43 +0000] [9] [INFO] Booting worker with pid: 9
+2022-03-12T21:22:43.229959+00:00 app[web.1]: [2022-03-12 21:22:43 +0000] [10] [INFO] Booting worker with pid: 10
+2022-03-12T21:22:43.322300+00:00 heroku[web.1]: State changed from starting to up
+2022-03-13T21:46:10.875681+00:00 heroku[web.1]: Cycling
+2022-03-13T21:46:10.892203+00:00 heroku[web.1]: State changed from up to starting
+2022-03-13T21:46:11.896235+00:00 heroku[web.1]: Stopping all processes with SIGTERM
+2022-03-13T21:46:11.965224+00:00 app[web.1]: [2022-03-13 18:46:11 -0300] [10] [INFO] Worker exiting (pid: 10)
+2022-03-13T21:46:11.965248+00:00 app[web.1]: [2022-03-13 18:46:11 -0300] [9] [INFO] Worker exiting (pid: 9)
+2022-03-13T21:46:11.965359+00:00 app[web.1]: [2022-03-13 21:46:11 +0000] [4] [INFO] Handling signal: term
+2022-03-13T21:46:12.172127+00:00 app[web.1]: [2022-03-13 21:46:12 +0000] [4] [INFO] Shutting down: Master
+2022-03-13T21:46:12.340078+00:00 heroku[web.1]: Process exited with status 0
+2022-03-13T21:46:19.677839+00:00 heroku[web.1]: Starting process with command `gunicorn backend.wsgi --log-file -`
+2022-03-13T21:46:21.620752+00:00 app[web.1]: [2022-03-13 21:46:21 +0000] [4] [INFO] Starting gunicorn 20.1.0
+2022-03-13T21:46:21.621177+00:00 app[web.1]: [2022-03-13 21:46:21 +0000] [4] [INFO] Listening at: http://0.0.0.0:32288 (4)
+2022-03-13T21:46:21.621215+00:00 app[web.1]: [2022-03-13 21:46:21 +0000] [4] [INFO] Using worker: sync
+2022-03-13T21:46:21.624855+00:00 app[web.1]: [2022-03-13 21:46:21 +0000] [9] [INFO] Booting worker with pid: 9
+2022-03-13T21:46:21.708301+00:00 app[web.1]: [2022-03-13 21:46:21 +0000] [10] [INFO] Booting worker with pid: 10
+2022-03-13T21:46:21.750376+00:00 heroku[web.1]: State changed from starting to up
+2022-03-14T22:14:42.800490+00:00 heroku[web.1]: Cycling
+2022-03-14T22:14:42.803325+00:00 heroku[web.1]: State changed from up to starting
+2022-03-14T22:14:45.368623+00:00 heroku[web.1]: Stopping all processes with SIGTERM
+2022-03-14T22:14:45.512145+00:00 app[web.1]: [2022-03-14 22:14:45 +0000] [4] [INFO] Handling signal: term
+2022-03-14T22:14:45.512329+00:00 app[web.1]: [2022-03-14 19:14:45 -0300] [10] [INFO] Worker exiting (pid: 10)
+2022-03-14T22:14:45.512344+00:00 app[web.1]: [2022-03-14 19:14:45 -0300] [9] [INFO] Worker exiting (pid: 9)
+2022-03-14T22:14:46.181744+00:00 app[web.1]: [2022-03-14 22:14:46 +0000] [4] [INFO] Shutting down: Master
+2022-03-14T22:14:46.343430+00:00 heroku[web.1]: Process exited with status 0
+2022-03-14T22:14:53.811093+00:00 heroku[web.1]: Starting process with command `gunicorn backend.wsgi --log-file -`
+2022-03-14T22:14:54.919867+00:00 app[web.1]: [2022-03-14 22:14:54 +0000] [4] [INFO] Starting gunicorn 20.1.0
+2022-03-14T22:14:54.920166+00:00 app[web.1]: [2022-03-14 22:14:54 +0000] [4] [INFO] Listening at: http://0.0.0.0:5947 (4)
+2022-03-14T22:14:54.920209+00:00 app[web.1]: [2022-03-14 22:14:54 +0000] [4] [INFO] Using worker: sync
+2022-03-14T22:14:54.922985+00:00 app[web.1]: [2022-03-14 22:14:54 +0000] [9] [INFO] Booting worker with pid: 9
+2022-03-14T22:14:55.013597+00:00 app[web.1]: [2022-03-14 22:14:55 +0000] [10] [INFO] Booting worker with pid: 10
+2022-03-14T22:14:55.526664+00:00 heroku[web.1]: State changed from starting to up
+2022-03-15T22:43:55.203068+00:00 heroku[web.1]: Cycling
+2022-03-15T22:43:55.210523+00:00 heroku[web.1]: State changed from up to starting
+2022-03-15T22:43:56.035357+00:00 heroku[web.1]: Stopping all processes with SIGTERM
+2022-03-15T22:43:56.113598+00:00 app[web.1]: [2022-03-15 22:43:56 +0000] [4] [INFO] Handling signal: term
+2022-03-15T22:43:56.113613+00:00 app[web.1]: [2022-03-15 19:43:56 -0300] [9] [INFO] Worker exiting (pid: 9)
+2022-03-15T22:43:56.113720+00:00 app[web.1]: [2022-03-15 19:43:56 -0300] [10] [INFO] Worker exiting (pid: 10)
+2022-03-15T22:43:56.425773+00:00 app[web.1]: [2022-03-15 22:43:56 +0000] [4] [INFO] Shutting down: Master
+2022-03-15T22:43:56.579486+00:00 heroku[web.1]: Process exited with status 0
+2022-03-15T22:44:04.939449+00:00 heroku[web.1]: Starting process with command `gunicorn backend.wsgi --log-file -`
+2022-03-15T22:44:06.415824+00:00 app[web.1]: [2022-03-15 22:44:06 +0000] [4] [INFO] Starting gunicorn 20.1.0
+2022-03-15T22:44:06.416171+00:00 app[web.1]: [2022-03-15 22:44:06 +0000] [4] [INFO] Listening at: http://0.0.0.0:15919 (4)
+2022-03-15T22:44:06.416214+00:00 app[web.1]: [2022-03-15 22:44:06 +0000] [4] [INFO] Using worker: sync
+2022-03-15T22:44:06.419057+00:00 app[web.1]: [2022-03-15 22:44:06 +0000] [9] [INFO] Booting worker with pid: 9
+2022-03-15T22:44:06.426988+00:00 app[web.1]: [2022-03-15 22:44:06 +0000] [10] [INFO] Booting worker with pid: 10
+2022-03-15T22:44:06.681229+00:00 heroku[web.1]: State changed from starting to up
+2022-03-16T20:02:51.623355+00:00 heroku[web.1]: Relocating dyno to a new server
+2022-03-16T20:02:51.633480+00:00 heroku[web.1]: State changed from up to down
+2022-03-16T20:02:51.671533+00:00 heroku[web.1]: State changed from down to starting
+2022-03-16T20:03:04.565405+00:00 heroku[web.1]: Starting process with command `gunicorn backend.wsgi --log-file -`
+2022-03-16T20:03:06.629369+00:00 app[web.1]: [2022-03-16 20:03:06 +0000] [4] [INFO] Starting gunicorn 20.1.0
+2022-03-16T20:03:06.629839+00:00 app[web.1]: [2022-03-16 20:03:06 +0000] [4] [INFO] Listening at: http://0.0.0.0:22255 (4)
+2022-03-16T20:03:06.629889+00:00 app[web.1]: [2022-03-16 20:03:06 +0000] [4] [INFO] Using worker: sync
+2022-03-16T20:03:06.633212+00:00 app[web.1]: [2022-03-16 20:03:06 +0000] [9] [INFO] Booting worker with pid: 9
+2022-03-16T20:03:06.700599+00:00 app[web.1]: [2022-03-16 20:03:06 +0000] [10] [INFO] Booting worker with pid: 10
+2022-03-16T20:03:06.858978+00:00 heroku[web.1]: State changed from starting to up
+2022-03-16T20:03:10.595676+00:00 heroku[web.1]: Stopping all processes with SIGTERM
+2022-03-16T20:03:11.151916+00:00 app[web.1]: [2022-03-16 17:03:11 -0300] [10] [INFO] Worker exiting (pid: 10)
+2022-03-16T20:03:11.154165+00:00 app[web.1]: [2022-03-16 17:03:11 -0300] [9] [INFO] Worker exiting (pid: 9)
+2022-03-16T20:03:11.154546+00:00 app[web.1]: [2022-03-16 20:03:11 +0000] [4] [INFO] Handling signal: term
+2022-03-16T20:03:11.782151+00:00 app[web.1]: [2022-03-16 20:03:11 +0000] [4] [INFO] Shutting down: Master
+2022-03-16T20:03:12.072049+00:00 heroku[web.1]: Process exited with status 0

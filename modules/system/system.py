@@ -137,7 +137,7 @@ class MainSystem(object):
 	def cmd_server_web_local(self):
 		from tools.content import ServerLocal
 		obj = ServerLocal('teste')
-		thred = th(target=obj.start_server)
+		thred = threading.Thread(target=obj.start_server)
 		thred.start()
 
 	def cmd_hydra(self):

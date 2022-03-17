@@ -15,17 +15,22 @@ from termcolor import colored
 from dialog.dialog import Dialog as msg
 from modules.system.system import MainSystem
 
-# Função para receber a entradada de dados do usuário
 def entry():
+
+    """ Função para receber a entradada de dados do usuário """
+
     data = input('{} #'.format(colored(os.getcwd(), 'white'))+colored('|set|', 'yellow')+'#>'+' ')
     return data
 
 
 def response(data):
+    """ Função de resposta """
     return data
 
 
 class Main(object):
+
+    """ Classe Base do sistema """
 
     _MainSystem = MainSystem()
     _USUARIO = None
@@ -65,6 +70,8 @@ class Main(object):
 
 
     def commands(self, commit):
+
+        """ Processamento de entrada de dados para o sistema """
 
         for cmd in self.triggers['commands']:
             if commit == cmd:
@@ -118,7 +125,9 @@ class Main(object):
 
 
     def methodos(self, argv):
-        # Avaliando comandos enviados ...
+
+        """ Avaliando comandos enviados """
+
         for cmd in self.triggers['commands']:
             if argv == cmd:
                 return self.commands(commit=cmd)
@@ -139,8 +148,10 @@ class Main(object):
             if not argv in self.triggers['commands']:
                 return print(colored('[-]', 'red'), colored('Comando não encontrado...', 'yellow'))
 
-# Processos de lógica para manipulação ...
 def builder():
+
+    """ Processos de lógica para manipulação """
+
     sessao = Main()
 
     while True:
@@ -152,7 +163,8 @@ def builder():
 
 def main():
 
-    # Verificação do sistema...
+    """ Verificação do sistema """
+
     so = platform.system()
     if so == 'Linux':
         print('Sistema Operacional', colored('Linux', 'green'))
@@ -168,4 +180,5 @@ def main():
 
 
 if __name__ == '__main__':
+    """ Arquivo principal """
     main()

@@ -15,21 +15,21 @@ class THC_hydra(object):
         'list_password':[],
         'protocolo':'',
         'local_page_login':'',
-        'request':'',
+        'payload':'',
         'message':'',
         }
 
     def __init__(self):
         pass
 
-    def target(self, host, port, list_name, list_password, protocolo, local_page_login, request, message):
+    def target(self, host, port, list_name, list_password, protocolo, local_page_login, payload, message):
         self._target['porta_web'] = port
         self._target['list_name'] = list_name
         self._target['list_password'] = list_password
         self._target['host'] = host
         self._target['protocolo'] = protocolo
         self._target['local_page_login'] = local_page_login
-        self._target['request'] = request
+        self._target['payload'] = payload
         self._target['message'] = message
 
 
