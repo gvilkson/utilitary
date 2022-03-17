@@ -24,11 +24,6 @@ def entry():
 def response(data):
     return data
 
-def loader(args):
-    with click.progressbar(range(int(args))) as bar:
-            for i in bar:
-                pass
-
 
 class Main(object):
 
@@ -63,7 +58,6 @@ class Main(object):
         }
 
     def __init__(self):
-        th(target=loader(10000))
         os.system('clear')
         menu_msg = msg()
         print(menu_msg.head_msg('menu'))

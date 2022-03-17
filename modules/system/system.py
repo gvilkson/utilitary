@@ -2,7 +2,7 @@
 import os
 import platform
 import subprocess
-from threading import Thread as th
+import threading
 
 from datetime import datetime
 import click
@@ -12,10 +12,7 @@ from dialog.dialog import Dialog as msg
 ##########################################################################
 #	 Start Funções auxiliares
 #-------------------------------------------------------------------------
-def loader(args):
-    with click.progressbar(range(int(args))) as bar:
-            for i in bar:
-                pass
+
 
 #-------------------------------------------------------------------------
 #	 End Funções auxiliares
@@ -25,8 +22,15 @@ def loader(args):
 ##########################################################################
 #	 Start Tratamento de processos paralelos
 #-------------------------------------------------------------------------
+"""
+É uma má pratica parar de forma abruptamente uma thread em qualquer linguagem.
 
+Vamos pensar A thread está com algum recurso critico que precisa ser fechado de forma correta.
+ A thread tem outras threads que devem ser paradas junto com essa thread.
 
+A melhor maneira de lidar com isso se você puder, (se você está administrando suas próprias threads) 
+é ter uma flag exit_request que cada thread checa regularmente para ver se é hora de fechar.
+"""
 class StoppableThread(threading.Thread):
     """Thread class com metodo de stop(). A thread precisa checar 
     regularmente pela condição de stopped() ."""
@@ -41,6 +45,12 @@ class StoppableThread(threading.Thread):
     def stopped(self):
         return self._stop.isSet()
 
+"""
+Há casos, no entanto, quando você realmente precisa matar uma thread.
+ Um exemplo é quando você está fazendo o wrap de uma biblioteca externa que está ocupada e você deseja interrompê-la.
+ A seguir permite que (com algumas restrições) lance uma exceção em uma thread do Python.
+
+"""
 
 def _async_raise(tid, exctype):
     '''Lanca uma excecao na threads com id tid'''
@@ -76,10 +86,17 @@ class ThreadWithExc(threading.Thread):
     def raiseExc(self, exctype):
         _async_raise( self._get_my_tid(), exctype )
 
+# Conforme observado, isto não é perfeito, porque se a thread estiver ocupada fora do interpretador Python, não vai pegar a interrupção.
+
+
 #-------------------------------------------------------------------------
 #	 End Tratamento de processos paralelos
 ##########################################################################
 
+
+##########################################################################
+#	 Start Sistema principal
+#-------------------------------------------------------------------------
 class MainSystem(object):
 	versao = None
 	plataforma = None
@@ -215,3 +232,7 @@ class MainSystem(object):
 	# Comandos sobre redes -------------------------------------
 	def cmd_ping(self, commit):
 		return subprocess.call(['ping', commit])
+
+#-------------------------------------------------------------------------
+#	 End Sistema principal
+##########################################################################
