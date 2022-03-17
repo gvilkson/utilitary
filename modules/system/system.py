@@ -9,10 +9,76 @@ import click
 from termcolor import colored
 from dialog.dialog import Dialog as msg
 
+##########################################################################
+#	 Start Funções auxiliares
+#-------------------------------------------------------------------------
 def loader(args):
     with click.progressbar(range(int(args))) as bar:
             for i in bar:
                 pass
+
+#-------------------------------------------------------------------------
+#	 End Funções auxiliares
+##########################################################################
+
+
+##########################################################################
+#	 Start Tratamento de processos paralelos
+#-------------------------------------------------------------------------
+
+
+class StoppableThread(threading.Thread):
+    """Thread class com metodo de stop(). A thread precisa checar 
+    regularmente pela condição de stopped() ."""
+
+    def __init__(self):
+        super(StoppableThread, self).__init__()
+        self._stop = threading.Event()
+
+    def stop(self):
+        self._stop.set()
+
+    def stopped(self):
+        return self._stop.isSet()
+
+
+def _async_raise(tid, exctype):
+    '''Lanca uma excecao na threads com id tid'''
+    if not inspect.isclass(exctype):
+        raise TypeError("Somente tipos podem ser lancados (nao instancias)")
+    res = ctypes.pythonapi.PyThreadState_SetAsyncExc(tid,
+                                                  ctypes.py_object(exctype))
+    if res == 0:
+        raise ValueError("thread com invalido id")
+    elif res != 1:
+        # "Se lancar um numero maior que um, eh um problema,
+        # e voce deveria chamar novamente com exc=NULL para reverter o efeito"
+        ctypes.pythonapi.PyThreadState_SetAsyncExc(tid, 0)
+        raise SystemError("PyThreadState_SetAsyncExc falhou")
+
+class ThreadWithExc(threading.Thread):
+    def _get_my_tid(self):
+        if not self.isAlive():
+            raise threading.ThreadError("the thread is not active")
+
+        if hasattr(self, "_thread_id"):
+            return self._thread_id
+
+        for tid, tobj in threading._active.items():
+            if tobj is self:
+                self._thread_id = tid
+                return tid
+
+        # TODO: em python 2.6, existe uma forma mais simples : self.ident
+
+        raise AssertionError("nao pode determinar as threads com id")
+
+    def raiseExc(self, exctype):
+        _async_raise( self._get_my_tid(), exctype )
+
+#-------------------------------------------------------------------------
+#	 End Tratamento de processos paralelos
+##########################################################################
 
 class MainSystem(object):
 	versao = None

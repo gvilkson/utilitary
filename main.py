@@ -116,7 +116,7 @@ class Main(object):
             self._MainSystem.cmd_cat(commit=commit[4:])
 
         elif 'ping' in commit.lower():
-            th(target=self._MainSystem.cmd_ping(commit=commit[5:]))
+            th(target=self._MainSystem.cmd_ping(commit=commit[5:])).start()
 
         ################################################################
         # End Comandos basicos do sistema ----------------------          <<------------------------
