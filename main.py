@@ -43,14 +43,14 @@ class Main(object):
 
                 'data',
                 'hydra',
-                'help',
-                'exit',
                 'login',
                 'gitconfig',
                 'herokuconfig',
                 'server web local',
 
-                # Comandos nativos --------
+                # Comandos basicos do sistema  --------
+                'help',
+                'exit',
                 'ls',
                 'clear',
                 'cd',
@@ -78,15 +78,8 @@ class Main(object):
                 self._CACHE.append(cmd)
                 print(self._CACHE)
 
-
-        if commit.lower() == 'exit':
-            self._MainSystem.cmd_exit()
-
-        elif commit.lower() == 'login':
+        if commit.lower() == 'login':
             self._MainSystem.cmd_login()
-
-        elif commit.lower() == 'help':
-            self._MainSystem.cmd_help()
 
         elif commit.lower() == 'gitconfig':
             self._MainSystem.cmd_gitconfig()
@@ -103,6 +96,12 @@ class Main(object):
         ################################################################
         # Comandos basicos do sistema ----------------------
         ################################################################
+        if commit.lower() == 'exit':
+            self._MainSystem.cmd_exit()
+
+        elif commit.lower() == 'help':
+            self._MainSystem.cmd_help()
+
         elif commit.lower() == 'ls':
             self._MainSystem.cmd_ls()
 
@@ -132,7 +131,8 @@ class Main(object):
             if argv == cmd:
                 return self.commands(commit=cmd)
 
-            # Condições para tratar argumentos de comandos ------------------
+            # Condições para tratar argumentos de comandos ------------------ +++
+            ################################################################
             elif argv[:3] == 'cd ':
                 self._CACHE.append(argv[:3])
                 return self.commands(commit=argv)
@@ -147,6 +147,8 @@ class Main(object):
 
             if not argv in self.triggers['commands']:
                 return print(colored('[-]', 'red'), colored('Comando não encontrado...', 'yellow'))
+            # End condições para tratar argumentos de comandos ------------------ ---
+            ################################################################
 
 def builder():
 
