@@ -208,10 +208,11 @@ class MainSystem(object):
 		print(colored('<<<<<<<<<<<<<<<< Arquivos >>>>>>>>>>>>>>>>>', 'white'))
 		for i in data:
 			if "." in i:
-				if not "." in i[0]:
-					self._ARQ_LOCAL_PATH.append(i)
-					arq_size = os.path.getsize(i)
-					print(colored(i, 'white'), '| BT/'+str(arq_size))
+				if i.count('.') < 2:
+					if not "." in i[0]:
+						self._ARQ_LOCAL_PATH.append(i)
+						arq_size = os.path.getsize(i)
+						print(colored(i, 'white'), '| BT/'+str(arq_size))
 
 		print(colored('___________________________________________________________ _ _', 'green'))
 		print(colored('|========================  End  =============================>>>', 'white'))
