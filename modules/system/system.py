@@ -5,7 +5,6 @@ import subprocess
 import threading
 
 from datetime import datetime
-import click
 from termcolor import colored
 from dialog.dialog import Dialog as msg
 
