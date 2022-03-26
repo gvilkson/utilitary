@@ -1,12 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import os
-import click
-import time
-import pandas
 import platform
-
-import subprocess
 
 from threading import Thread as th
 from termcolor import colored
